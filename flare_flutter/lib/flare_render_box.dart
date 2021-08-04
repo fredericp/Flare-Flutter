@@ -250,7 +250,9 @@ abstract class FlareRenderBox extends RenderBox {
   @override
   void performLayout() {
     if (!sizedByParent) {
-      size = constraints.constrain(_intrinsicSize);
+      // FEDE before: contraints.constrain
+      size = constraints
+          .constrainSizeAndAttemptToPreserveAspectRatio(_intrinsicSize);
     }
   }
 
